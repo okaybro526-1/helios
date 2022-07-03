@@ -54,8 +54,8 @@ def stats(update, context):
 
 def start(update, context):
     buttons = ButtonMaker()
-    buttons.buildbutton("Repo", "https://github.com/arshsisodiya/helios-mirror")
-    buttons.buildbutton("Support Group", "https://t.me/mirrorsociety")
+    buttons.buildbutton("Owner 🧑‍💻", "https://t.me/pro_noober")
+    buttons.buildbutton("More Bots 🤖", "https://t.me/xtronbots")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -64,7 +64,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
         sendMarkup(start_string, context.bot, update.message, reply_markup)
     else:
-        sendMarkup('Not Authorized user, deploy your own mirror-leech bot', context.bot, update.message, reply_markup)
+        sendMarkup('Hey there 💤\n\n<b>Status</b>: Not authorised for mirror features ✖️ \n\n📮 You can always contact me via this bot', context.bot, update.message, reply_markup)
 
 def restart(update, context):
     restart_message = sendMessage("Restarting...", context.bot, update.message)
@@ -185,16 +185,17 @@ sudo_help_string = f'''<br><br><b> Sudo/Owner Only Commands </b><br><br>
 <b>/{BotCommands.RmleechlogCommand}</b>: Remove Leech Log
 '''
 help_string = f'''
-Hei, Need Help!!
+🆘 AayinaBot Help
 '''
 help = telegraph.create_page(
-        title='Helios-Mirror Help',
+        title='Aayinabot-Mirror Help',
         content=help_string_telegraph + sudo_help_string,
     )["path"]
 
 def bot_help(update, context):
     button = ButtonMaker()
-    button.buildbutton("Click Here", f"https://telegra.ph/{help}")
+    button.buildbutton("📄Commands", f"https://telegra.ph/{help}")
+    button.buildbutton("🌐Site", "https://mirror.xtronnoob.workers.dev/")
     reply_markup = InlineKeyboardMarkup(button.build_menu(1))
     sendMarkup(help_string, context.bot, update.message, reply_markup)
 
@@ -265,7 +266,7 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("Restarted successfully!", chat_id, msg_id)
+        bot.edit_message_text("Restarted successfully! 🚀", chat_id, msg_id)
         osremove(".restartmsg")
 
     start_handler = CommandHandler(BotCommands.StartCommand, start, run_async=True)
