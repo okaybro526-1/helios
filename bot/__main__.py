@@ -56,15 +56,18 @@ def start(update, context):
     buttons = ButtonMaker()
     buttons.buildbutton("Owner 🧑‍💻", "https://t.me/pro_noober")
     buttons.buildbutton("More Bots 🤖", "https://t.me/xtronbots")
+    uname = f'<a href="tg://user?id={update.message.from_user.id}">{update.message.from_user.first_name}</a>'
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
-This bot can mirror all your links to Google Drive!
-Type /{BotCommands.HelpCommand} to get a list of available commands
+Hey! {uname} [{update.message.from_user.id}]\n
+Welcome to Aayinabot 🎉\n\n
+<b>Status</b>: <u>Authorised or Sudo User</u> ✅\n
+For help use /{BotCommands.HelpCommand}
 '''
         sendMarkup(start_string, context.bot, update.message, reply_markup)
     else:
-        sendMarkup('Hey there 💤\n\n<b>Status</b>: Not authorised for mirror features ✖️ \n\n📮 You can always contact me via this bot', context.bot, update.message, reply_markup)
+        sendMarkup('Dear {uname}\n\n You can use this bot to contact <b><a href="https://t.me/pro_noober">➤ My Master </a></b>\n\n If you are a member of my mirror group i will send your leeched or mirror files here 🎊', context.bot, update.message, reply_markup)
 
 def restart(update, context):
     restart_message = sendMessage("Restarting...", context.bot, update.message)
