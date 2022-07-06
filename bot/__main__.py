@@ -68,7 +68,7 @@ For help use /{BotCommands.HelpCommand}
         sendMarkup(start_string, context.bot, update.message, reply_markup)
     else:
         uname = f'<a href="tg://user?id={update.message.from_user.id}">{update.message.from_user.first_name}</a>'
-        sendMarkup('Dear {uname} [{update.message.from_user.id}]\n\n You can use this bot to contact <a href="https://t.me/pro_noober">➤ My Master </a>\n\n If you are a member of my mirror group i will send your leeched or mirror files here 📬', context.bot, update.message, reply_markup)
+        sendMarkup(f'Dear {uname} [{update.message.from_user.id}]\n\n You can use this bot to contact <a href="https://t.me/pro_noober">➤ My Master </a>\n\n If you are a member of my mirror group i will send your leeched or mirror files here 📬', context.bot, update.message, reply_markup)
 
 def restart(update, context):
     restart_message = sendMessage("Restarting...", context.bot, update.message)
