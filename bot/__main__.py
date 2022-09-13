@@ -50,7 +50,7 @@ def stats(update, context):
             f'<b>Used:</b> {mem_u}\n\n'
     sendMessage(stats, context.bot, update.message)
 
-
+"""
 def start(update, context):
     buttons = ButtonMaker()
     buttons.buildbutton(f"{START_BTN1_NAME}", f"{START_BTN1_URL}")
@@ -64,6 +64,8 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
         sendMarkup(start_string, context.bot, update.message, reply_markup)
     else:
         sendMarkup('Not an Authorized user, deploy your own helios-mirror-leech bot', context.bot, update.message, reply_markup)
+"""
+
 
 def restart(update, context):
     restart_message = sendMessage("Restarting...", context.bot, update.message)
@@ -83,7 +85,7 @@ def ping(update, context):
     start_time = int(round(time() * 1000))
     reply = sendMessage("Starting Ping", context.bot, update.message)
     end_time = int(round(time() * 1000))
-    editMessage(f'{end_time - start_time} ms', reply)
+    editMessage(f'**🏓Ping**- {end_time - start_time} ms', reply)
 
 
 def log(update, context):
@@ -146,11 +148,13 @@ NOTE: Try each command without any perfix to see more detalis.<br><br>
 '''
 
 help_string = f'''
-Hei, Need Help!!
+🆘 AayinaBot Help Menu 
+
+Please refer to the below Buttons
 '''
 try:
     help = telegraph.create_page(
-        title='Helios-Mirror Help',
+        title='AayinaBot-Mirror Help',
         content=help_string_telegraph,
     )["path"]
 except Exception as err:
@@ -158,7 +162,8 @@ except Exception as err:
     pass
 def bot_help(update, context):
     button = ButtonMaker()
-    button.buildbutton("Click Here", f"https://graph.org/{help}")
+    button.buildbutton("📄Commands", f"https://telegra.ph/{help}")
+    button.buildbutton("⁉️How to use bot", "https://www.google.com/search?q=Why+i+am+gay%3F&ei=iv3oYv6_IL6PseMPiciM8AE&oq=Why+i+am+gay%3F&gs_lcp=ChNtb2JpbGUtZ3dzLXdpei1zZXJwEAMyBQgAEIYDMgUIABCGAzIICCEQHhAWEB0yCAghEB4QFhAdMggIIRAeEBYQHToHCAAQRxCwA0oECEEYAFDNCFinDmDhEWgAcAJ4AIABtgKIAfYEkgEHMC4yLjAuMZgBAKABAcgBCMABAQ&sclient=mobile-gws-wiz-serp")
     reply_markup = button.build_menu(1)
     sendMarkup(help_string, context.bot, update.message, reply_markup)
 
