@@ -163,7 +163,7 @@ except Exception as err:
 def bot_help(update, context):
     button = ButtonMaker()
     button.buildbutton("📄Commands", f"https://telegra.ph/{help}")
-    button.buildbutton("⁉️How to use bot", "https://www.google.com/search?q=Why+i+am+gay%3F&ei=iv3oYv6_IL6PseMPiciM8AE&oq=Why+i+am+gay%3F&gs_lcp=ChNtb2JpbGUtZ3dzLXdpei1zZXJwEAMyBQgAEIYDMgUIABCGAzIICCEQHhAWEB0yCAghEB4QFhAdMggIIRAeEBYQHToHCAAQRxCwA0oECEEYAFDNCFinDmDhEWgAcAJ4AIABtgKIAfYEkgEHMC4yLjAuMZgBAKABAcgBCMABAQ&sclient=mobile-gws-wiz-serp")
+    button.buildbutton("⁉️How to use bot", "https://bitly.lc/ow8ja")
     reply_markup = button.build_menu(1)
     sendMarkup(help_string, context.bot, update.message, reply_markup)
 
